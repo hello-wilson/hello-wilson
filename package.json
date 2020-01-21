@@ -1,0 +1,36 @@
+{
+  "name": "hello-wilson",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "dev-client": "webpack-dev-server --open && ",
+    "dev-server": "nodemon ./server/server.js",
+    "start": "webpack && node ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hello-wilson/hello-wilson.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hello-wilson/hello-wilson/issues"
+  },
+  "homepage": "https://github.com/hello-wilson/hello-wilson#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "pg": "^7.17.1"
+  }
+}
