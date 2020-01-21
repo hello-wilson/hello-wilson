@@ -4,7 +4,9 @@ const app = express();
 const userController = require('./controllers/userController');
 const messageController = require('./controllers/messageController');
 const bcrypt = require('bcrypt');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.send('hello')
@@ -12,8 +14,8 @@ app.get('/', (req, res) => {
 
 
 
-app.post('/signup', (req, res) => {
-    res.json(res.locals.loginStatus);
+app.post('/signup', userController.signup, (req, res) => {
+    res.send('hello there')
 })
 
 
