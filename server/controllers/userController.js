@@ -21,7 +21,7 @@ const userController = {
         const queryString = 'INSERT INTO accounts (username, password) VALUES ($1::text, $2::text);';
 
         query(queryString,[username, password], (err, res) => {
-            if (err) throw new Error(err);
+            if (err) return next(err);
             if (!res.locals) res.locals = {};
             res.locals.signupStatus = res;
             console.log(res)

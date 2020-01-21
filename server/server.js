@@ -19,6 +19,10 @@ app.post('/signup', userController.signup, (req, res) => {
 })
 
 
+app.use(function (err, req, res, next) {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+  });
 
 app.listen(3000,() => {
     console.log('Server listening on PORT 3000')
