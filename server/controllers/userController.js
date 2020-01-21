@@ -1,0 +1,1 @@
+import { query } from '../models/dataModel';
