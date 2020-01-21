@@ -7,7 +7,7 @@
     "build": "webpack",
     "dev-client": "webpack-dev-server --open",
     "dev-server": "nodemon ./server/server.js",
-    "dev": "webpack-dev-server --open && nodemon ./server/server.js",
+    "dev": "webpack-dev-server --open & nodemon ./server/server.js",
     "start": "webpack && node ./server/server.js"
   },
   "repository": {
