@@ -6,23 +6,36 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    index: '',
+    contentBase: path.resolve(__dirname, 'dist'),
+    hot: true,
+    open: true,
+    port:  8080,
+    proxy: {
+      '/': 'http://localhost:3000'
+    },
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
-    ]
-  }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
+        test: /.(css|scss)$/,
+        exclude: /node_modules/,
+        use: ['sass-loader', 'style-loader', 'css-loader'],
+      },
+    ],
+  },
 };
