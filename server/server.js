@@ -6,9 +6,14 @@ const messageController = require('./controllers/messageController');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+app.use(express.static('client'))
 
-app.get('/', (req, res) => { 
-    res.send('hello');
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/index.html'))
+})
+
+app.get('/dist/bundle.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/bundle.js'))
 })
 
 
