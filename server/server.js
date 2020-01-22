@@ -19,7 +19,7 @@ app.get('/dist/bundle.js', (req, res) => {
 
 
 app.post('/signup', userController.signup, (req, res) => {
-    res.send('Signup Successful!')
+    res.status(200).send('Signup Successful!')
 })
 
 app.post('/login', userController.login, (req, res) => {
@@ -36,3 +36,4 @@ app.listen(3000,() => {
     console.log('Server listening on PORT 3000')
 })
 
+module.exports = app;

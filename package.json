@@ -9,7 +9,9 @@
     "dev-server": "nodemon ./server/server.js",
     "dev": "webpack-dev-server --open & nodemon ./server/server.js",
     "start": "webpack && node ./server/server.js",
-    "test": "jest"
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=100000"
   },
   "repository": {
     "type": "git",
@@ -39,11 +41,12 @@
   "dependencies": {
     "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
-    "jest": "^24.9.0",
-    "supertest": "^4.0.2",
-    "react-dom": "^16.12.0",
+    "cross-env": "^6.0.3",
     "express": "^4.17.1",
-    "pg": "^7.17.1"
+    "jest": "^24.9.0",
+    "pg": "^7.17.1",
+    "react-dom": "^16.12.0",
+    "supertest": "^4.0.2"
   },
   "jest": {
     "testEnvironment": "node",
