@@ -10,6 +10,7 @@ function LogContainer() {
     <div id="logContainer">
       <h1>Hello Wilson</h1>
       {logDisplay}
+      <div className="island" />
     </div>
   )
 }

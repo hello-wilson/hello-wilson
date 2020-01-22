@@ -10,6 +10,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
+    publicPath: '/dist/',
     index: '',
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
@@ -34,7 +35,7 @@ module.exports = {
       {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
-        use: ['sass-loader', 'style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },

@@ -1,0 +1,40 @@
+$daytime-bg: #E9F7FF;
+$night-bg: #394653;
+$dark-blue:#495A6A;
+$mid-blue: #355BA5;
+$water-blue: #88A5DE;
+$white: #FBFBFB;
+$orange: F7AF02;
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+#logContainer {
+    background-image: linear-gradient(180deg, $daytime-bg 0%, $white 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        color: $dark-blue;
+        font-family: 'Josefin Sans';
+    }
+
+    .island {
+        position: fixed;
+        bottom: 0;
+        height: 40%;
+        width: 100vw;
+        @media screen and (max-width: 680px) {
+            background-image: url('/assets/Log_Beach.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+}

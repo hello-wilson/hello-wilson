@@ -5,6 +5,8 @@ import Main from './components/MainPage.jsx'
 import ViewMessages from './components/ViewMessages.jsx'
 import Answer from './components/Answer.jsx'
 
+import './style.scss';
+
 
 function App() {
   const [pageDisplay, setDisplay] = useState(<LogContainer/>);
