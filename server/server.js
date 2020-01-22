@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const userController = require('./controllers/userController');
 const messageController = require('./controllers/messageController');
-const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -15,7 +14,7 @@ app.get('/', (req, res) => {
 
 
 app.post('/signup', userController.signup, (req, res) => {
-    res.send('hello there')
+    res.send('Signup Successful!')
 })
 
 

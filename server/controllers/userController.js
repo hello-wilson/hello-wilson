@@ -1,4 +1,6 @@
 const { query } = require('../models/dataModel');
+const bcrypt = require('bcrypt');
+const saltRounds = 10
 
 const userController = {
 
@@ -17,16 +19,19 @@ const userController = {
         console.log(req.body)
         if (!username || !password) return res.send('Missing required information!');
         //if not, proceed to build query and send to database
-        console.log('in the signup')
-        const queryString = 'INSERT INTO accounts (username, password) VALUES ($1::text, $2::text);';
-
-        query(queryString,[username, password], (err, res) => {
+        //hash the password
+        bcrypt.hash(password, saltRounds, (err, hash) => {
             if (err) return next(err);
-            if (!res.locals) res.locals = {};
-            res.locals.signupStatus = res;
-            console.log(res)
-            return next();
-        })
+            const queryString = 'INSERT INTO accounts (username, password) VALUES ($1::text, $2::text);';
+            
+            query(queryString,[username, hash], (err, res) => {
+                if (err) return next(err);
+                if (!res.locals) res.locals = {};
+                res.locals.signupStatus = res;
+                return next();
+            })
+        } )
+
     }
 
 }
