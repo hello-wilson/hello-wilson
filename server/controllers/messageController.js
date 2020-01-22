@@ -1,6 +1,6 @@
 const { query } = require('../models/dataModel');
 
-const messageController = {
+const messageController = { 
 
 }
 
