@@ -24,6 +24,7 @@ function LogContainer() {
       <h1>Hello Wilson</h1>
       {logDisplay}
       <LogLinks changeDisplay={changeDisplay} page={whichDisplay} />
+      <div className="island" />
     </div>
   )
 }
