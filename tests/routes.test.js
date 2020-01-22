@@ -80,7 +80,7 @@ beforeAll((done) => {
     // })
 })
 
-describe('Post Sign up request', () => {
+describe('Post Sign Up Request', () => {
   it('should create a new post', async () => {
     const res = await request(app)
       .post('/signup')
@@ -89,8 +89,21 @@ describe('Post Sign up request', () => {
         password: 'taloola',
       })
     expect(res.statusCode).toEqual(200);
-    expect(res.body).toEqual('Signup Successful!');
+    expect(res.text).toEqual('Signup Successful!');
     // expect(res.body).toHaveProperty('post')
+  })
+})
+
+describe('Post Log In Request', () => {
+  it('should let the user log in', async () => {
+    const res = await request(app)
+      .post('/login')
+      .send({
+        username: 'hello',
+        password: 'taloola',
+      })
+      expect(res.statusCode).toEqual(200);
+      expect(res.text).toEqual('hello I just logged in');
   })
 })
 
