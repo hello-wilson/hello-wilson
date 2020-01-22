@@ -25,4 +25,15 @@ body {
         color: $dark-blue;
         font-family: 'Josefin Sans';
     }
+
+    .island {
+        position: fixed;
+        bottom: 0;
+        height: 200px;
+        width: 100vw;
+        @media screen and (max-width: 480px) {
+        
+        }
+
+    }
 }
