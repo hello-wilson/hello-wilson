@@ -29,11 +29,12 @@ body {
     .island {
         position: fixed;
         bottom: 0;
-        height: 200px;
+        height: 40%;
         width: 100vw;
-        @media screen and (max-width: 480px) {
-        
+        @media screen and (max-width: 680px) {
+            background-image: url('/assets/Log_Beach.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
-
     }
 }
