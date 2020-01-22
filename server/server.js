@@ -7,8 +7,8 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send('hello')
+app.get('/', (req, res) => { 
+    res.send('hello');
 })
 
 
@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 app.post('/signup', userController.signup, (req, res) => {
     res.send('Signup Successful!')
 })
+
+app.post('/login', userController.login, (req, res) => {
+    res.send('hello I just logged in');
+});
 
 
 app.use(function (err, req, res, next) {

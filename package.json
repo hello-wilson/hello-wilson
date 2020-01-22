@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --open",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "start-server": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jest": "^24.9.0",
+    "nodemon": "^2.0.2",
     "pg": "^7.17.1",
     "supertest": "^4.0.2"
   }

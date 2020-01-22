@@ -7,7 +7,17 @@ const userController = {
 
     //queries the database using username and password found in the body
     login (req, res, next){
+        const { username, password } = req.body;
+        //if missing username or password, send back error
+        if (!username || !password) return res.send('Missing required information!');
 
+        const queryString = "SELECT * FROM accounts WHERE username = $1::text";
+    
+        query(queryString, [username], (err, result) => {
+            if (err) throw new Error(err);
+            if (!result.rows.length) return res.send('User with username not found, please signup to proceed');
+            return next();
+        })
     },
 
     //queries the database using username and password found in the body to create a new user. First validates data on the request object and returns success or failure depending on if conditionals pass and query is successful.
@@ -16,8 +26,14 @@ const userController = {
         //extract username and password from req body
         const { username, password } = req.body
         //if missing username or password, send back error
-        console.log(req.body)
         if (!username || !password) return res.send('Missing required information!');
+
+        // Add validation to ensure that the username is unique.
+        const userNameQueryString = "SELECT username FROM accounts WHERE username = $1::text";
+        query(userNameQueryString, [username], (err, result) => {
+        if (err) throw new Error(err);
+        if (result.rows.length) return res.send('Username already exist.');
+        
         //if not, proceed to build query and send to database
         //hash the password
         bcrypt.hash(password, saltRounds, (err, hash) => {
@@ -31,6 +47,7 @@ const userController = {
                 return next();
             })
         } )
+    })
 
     }
 
