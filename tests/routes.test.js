@@ -52,7 +52,7 @@ beforeAll(async () => {
       });
     });
     await createMessageTablePromise;
- 
+ return new Promise(resolve => resolve())
 })
 
 describe('Post Sign up request', () => {
