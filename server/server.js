@@ -23,7 +23,7 @@ app.post('/signup', userController.signup, (req, res) => {
 })
 
 app.post('/login', userController.login, (req, res) => {
-    res.send('hello I just logged in');
+    res.status(200).send('hello I just logged in');
 });
 
 
