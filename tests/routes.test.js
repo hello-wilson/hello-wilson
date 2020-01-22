@@ -89,6 +89,7 @@ describe('Post Sign up request', () => {
         password: 'taloola',
       })
     expect(res.statusCode).toEqual(200);
+    expect(res.body).toEqual('Signup Successful!');
     // expect(res.body).toHaveProperty('post')
   })
 })
