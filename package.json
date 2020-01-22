@@ -7,7 +7,8 @@
     "build": "webpack",
     "dev": "webpack-dev-server --open",
     "watch": "webpack --watch",
-    "start-server": "nodemon server/server.js"
+    "start-server": "nodemon server/server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",

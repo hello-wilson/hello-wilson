@@ -4,6 +4,7 @@ const saltRounds = 10
 
 const userController = {
 
+    // For the messages table, we'd have fields like 'id', 'body', 'sender_uid', 'created_at' right?
 
     //queries the database using username and password found in the body
     login (req, res, next){
@@ -11,12 +12,18 @@ const userController = {
         //if missing username or password, send back error
         if (!username || !password) return res.send('Missing required information!');
 
-        const queryString = "SELECT * FROM accounts WHERE username = $1::text";
-    
+        const queryString = "SELECT username, password FROM accounts WHERE username = $1::text";
         query(queryString, [username], (err, result) => {
             if (err) throw new Error(err);
             if (!result.rows.length) return res.send('User with username not found, please signup to proceed');
-            return next();
+
+            // check if the password is correct
+            // check to ensure that the user plain password text is equal to the saved hash password.
+            bcrypt.compare(password, result.rows[0].password, function(err, isValid) {
+                if (err) return res.send('An error occurred, please contact administrator');
+                if (!isValid) return res.send('Incorrect password, please try again.');
+                return next();
+            });
         })
     },
 
