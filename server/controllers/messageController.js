@@ -12,14 +12,12 @@ const messageController = {
     res.status(201).json({status: 'success', message: 'Message Added'})
   }, 
   getMessages: (req, res) => {
-    //const { user_id } = req.body
-    //console.log(user_id)
-    //WHERE user_id=$1 to search by uses
-    query(`SELECT * FROM messages`, (error, results) => {
+    const { user_id } = req.query;
+    query(`SELECT * FROM messages WHERE user_id = $1`, [ user_id ], (error, results) => {
       if(error){
         throw error
       }
-      res.status(200).json(results)
+      res.status(200).json(results.rows)
     } )
   }
 }
