@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import InputText from './InputText.jsx';
 
 function SignUp() {
+
   return (
     <div>
       <h2>Sign Up</h2>
-      <InputText class='username'>Username:</InputText>
-      <InputText class='password'>Password:</InputText>
+      Username:<br/>
+      <input type="text" name="username" placeholder="username"></input><br/>
+      Password:<br/>
+      <input type="password" name="Password" placeholder="password"></input><br/>
       <button>SIGN UP</button>
     </div>
   )
