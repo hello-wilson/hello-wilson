@@ -9,8 +9,8 @@ module.exports = {
     contentBase: './dist',
     hot: true,
     proxy: {
-      '/client': 'http://localhost:3000'
-    },
+      '/client': 'http://localhost:3000',
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -34,6 +34,11 @@ module.exports = {
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /.svg$/,
+        exclude: /node_modules/,
+        use: ['svg-inline-loader'],
+      }
     ],
   },
   output: {
