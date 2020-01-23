@@ -3,7 +3,7 @@ import InputText from './InputText.jsx';
 
 function LogIn() {
   return (
-    <div id="logIn">
+    <div>
       <h2>Log In</h2>
       <InputText class='username'>Username:</InputText>
       <InputText class='password'>Password:</InputText>
