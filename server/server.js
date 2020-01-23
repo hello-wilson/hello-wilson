@@ -6,21 +6,29 @@ const messageController = require('./controllers/messageController');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+app.use(express.static('client'))
 
-app.get('/', (req, res) => { 
-    res.send('hello');
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/index.html'))
+})
+
+app.get('/dist/bundle.js', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/bundle.js'))
 })
 
 
 
 app.post('/signup', userController.signup, (req, res) => {
-    res.send('Signup Successful!')
+    res.status(200).send('Signup Successful!')
 })
 
 app.post('/login', userController.login, (req, res) => {
-    res.send('Logged in successful!');
+    res.status(200).send('Logged in successful!');
 });
 
+app.post('/save', messageController.postMessage)
+
+app.get('/messages', messageController.getMessages)
 
 app.use(function (err, req, res, next) {
     console.error(err.stack)
