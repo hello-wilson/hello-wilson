@@ -20,10 +20,11 @@ function LogContainer() {
 
   return (
     
-    <div id="logContainer" className="island">
+    <div id="logContainer">
       <h1>Hello Wilson</h1>
       {logDisplay}
       <LogLinks changeDisplay={changeDisplay} page={whichDisplay} />
+      <div className="island"></div>
     </div>
   )
 }

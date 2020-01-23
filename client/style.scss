@@ -4,13 +4,21 @@ $dark-blue:#495A6A;
 $mid-blue: #355BA5;
 $water-blue: #88A5DE;
 $white: #FBFBFB;
-$orange: F7AF02;
+$orange: #F7AF02;
 
 body {
     margin: 0;
     display: flex;
     justify-content: center;
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
 }
 
 #logContainer {
@@ -23,7 +31,6 @@ body {
 
     h1 {
         color: $dark-blue;
-        font-family: 'Josefin Sans';
     }
 
     .island {
@@ -32,9 +39,39 @@ body {
         height: 40%;
         width: 100vw;
         @media screen and (max-width: 680px) {
-            background-image: url('./assets/Log_Beach.svg');
+            background-image: url('/assets/Beach-BG-M.svg');
             background-repeat: no-repeat;
             background-size: cover;
         }
+        @media screen and (min-width: 681px) {
+            background-image: url('/assets/Beach-BG-LG.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+}
+
+#logIn {
+    background-color: $white;
+    border: 1px $mid-blue solid;
+    z-index: 1;
+    max-width: 600px;
+    max-height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px $dark-blue;
+    @media screen and (max-width: 680px) {
+        width: 90%;
+        height: 500px;
+    }
+    @media screen and (min-width: 681px) {
+        width: 60%;
+        height: 500px;
+    }
+
+    h2 {
+        color: $dark-blue;
     }
 }
