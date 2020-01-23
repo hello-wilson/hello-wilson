@@ -3,8 +3,10 @@ import LogIn from './LogIn.jsx';
 import SignUp from './SignUp.jsx';
 import LogLinks from './LogLinks.jsx';
 
-function LogContainer() {
-  const [logDisplay, setLogDisplay] = useState(<LogIn/>);
+function LogContainer(props) {
+  console.log('From Log Container', props)
+
+  const [logDisplay, setLogDisplay] = useState(<LogIn setDisplay={props.setDisplay}/>);
   const [whichDisplay, setWhichDisplay] = useState('Sign Up Page');
   const [whichId, setWhichId] = useState('logIn');
 
@@ -12,12 +14,12 @@ function LogContainer() {
     if (whichDisplay === 'Sign Up Page') {
       setWhichDisplay('Log In Page');
       setWhichId('signUp');
-      setLogDisplay(<SignUp/>);
+      setLogDisplay(<SignUp setDisplay={props.setDisplay}/>);
     }
     else {
       setWhichDisplay('Sign Up Page');
       setWhichId('logIn');
-      setLogDisplay(<LogIn />);
+      setLogDisplay(<LogIn setDisplay={props.setDisplay}/>);
     }
   }
 
