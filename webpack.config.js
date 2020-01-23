@@ -1,23 +1,22 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: './client/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
   },
   devtool: 'inline-source-map',
   devServer: {
+    publicPath: '/dist/',
     index: '',
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
-    open: true,
-    port:  8080,
     proxy: {
-      '/': 'http://localhost:3000'
-    },
+      '/': 'http://localhost:3000',
+    }
   },
   module: {
     rules: [
@@ -34,7 +33,7 @@ module.exports = {
       {
         test: /.(css|scss)$/,
         exclude: /node_modules/,
-        use: ['sass-loader', 'style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
