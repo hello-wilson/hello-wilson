@@ -17,7 +17,7 @@ function LogContainer() {
     else {
       setWhichDisplay('Sign Up Page');
       setWhichId('logIn');
-      setLogDisplay(<LogIn/>);
+      setLogDisplay(<LogIn />);
     }
   }
 

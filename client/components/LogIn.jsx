@@ -5,11 +5,11 @@ function LogIn() {
   return (
     <div>
       <h2>Log In</h2>
-      Username:<br/>
+      <label htmlFor="username">Username:</label><br/>
       <input type="text" name="username" placeholder="username"></input><br/>
-      Password:<br/>
-      <input type="password" name="Password" placeholder="password"></input><br/>
-      <button>LOG IN</button>
+      <label htmlFor="password">Password:</label><br/>
+      <input type="password" name="password" placeholder="password"></input><br/>
+      <button>Log In</button>
     </div>
   )
 }

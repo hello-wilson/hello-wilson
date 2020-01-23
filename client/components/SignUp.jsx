@@ -9,7 +9,7 @@ function SignUp() {
       <input type="text" name="username" placeholder="username"></input><br/>
       Password:<br/>
       <input type="password" name="Password" placeholder="password"></input><br/>
-      <button>SIGN UP</button>
+      <button>Sign Up</button>
     </div>
   )
 }
