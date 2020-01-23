@@ -53,6 +53,7 @@ h2 {
 
 #logIn {
     background-color: $white;
+    color: $dark-blue;
     border: 1px $mid-blue solid;
     z-index: 1;
     max-width: 600px;
@@ -73,5 +74,164 @@ h2 {
 
     h2 {
         color: $dark-blue;
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        border: 1px $mid-blue solid;
+        border-radius: 5px;;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    .toggleCard button {
+        margin-top: 2em;
+        background-color: transparent;
+        color: $mid-blue;
+        text-decoration: underline;
+        font-weight: normal;
+    }
+
+    button {
+        background-color: $mid-blue;
+        border: none;
+        padding: 10px 15px;
+        width: 100%;
+        color: $white;
+        font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+}
+
+#signUp {
+    background-color: $mid-blue;
+    color: $white;
+    border: 1px $orange solid;
+    z-index: 1;
+    max-width: 600px;
+    max-height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px $dark-blue;
+    @media screen and (max-width: 680px) {
+        width: 90%;
+        height: 500px;
+    }
+    @media screen and (min-width: 681px) {
+        width: 60%;
+        height: 500px;
+    }
+
+    h2 {
+        color: $orange;
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        border: 1px $orange solid;
+        border-radius: 5px;;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    .toggleCard button {
+        margin-top: 2em;
+        background-color: transparent;
+        color: $white;
+        text-decoration: underline;
+        font-weight: normal;
+    }
+
+    button {
+        background-color: E7AF28;
+        border: none;
+        padding: 10px 15px;
+        width: 100%;
+        color: $white;
+        font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+}
+
+#mainPage {
+    background-color: $water-blue;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        color: $white
+    }
+
+    button {
+        min-height: 200px;
+        height: 30%;
+        width: 50%;
+        min-width: 300px;
+        background-color: $orange;
+        color: $dark-blue;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: left;
+        box-shadow: 0px 4px 4px $dark-blue;
+        margin: 3rem;
+        z-index: 1;
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @media screen and (max-width: 680px) { 
+            font-size: 1.25em;
+            padding: 1.25rem;
+        }
+
+        @media screen and (min-width: 681px) {
+            font-size: 2em;
+            padding: 3rem;
+        }
+    }
+
+    button img {
+        margin: 1rem;
+    }
+
+    .island {
+        position: fixed;
+        bottom: 0;
+        height: 70%;
+        width: 100vw;
+        @media screen and (max-width: 680px) {
+            background-image: url('/assets/Log_Beach.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media screen and (min-width: 681px) {
+            background-image: url('/assets/Log_Beach-LG.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     }
 }
